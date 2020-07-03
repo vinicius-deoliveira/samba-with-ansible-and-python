@@ -14,8 +14,9 @@ vagrant                                    2.2
 virtualbox                                 6.1
 ```
 
+**Python libs**
 ```python
-pip3 freeze | grep --color "test\|infra"
+$ pip3 freeze | grep --color "test\|infra"
 pytest==5.4.3
 testinfra==5.2.1
 ```
