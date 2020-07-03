@@ -2,7 +2,7 @@
 
 Utilizei Vagrant para automatizar o processo de criação da máquina.
 
-Este repositório foi criado com intuito de aprender mais sobre IaC, e automatizar o processo de testes.
+Este repositório foi criado para aprender e estudar mais sobre IaC, e processos de testes automatizado.
 
 ## Pré requisitos:
 
