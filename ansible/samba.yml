@@ -19,7 +19,11 @@
       service: 
         name: smbd
         state: started
-        enable: yes
+    
+    - name: Enable Samba service
+      service: 
+        name: smbd
+        enabled: yes
         
     - name: Install python3 pip package for test the infrastructure
       apt: 

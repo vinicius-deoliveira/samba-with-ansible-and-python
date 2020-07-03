@@ -22,6 +22,6 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.provision 'shell', path: 'vagrant_script/user.sh'
+#  config.vm.provision 'shell', path: 'vagrant_script/user.sh'
   
 end
