@@ -9,3 +9,8 @@ def test_samba_common_is_installed(host):
 def test_cifs_utils_is_installed(host):
     cifs_utils = host.package("cifs-utils")
     assert cifs_utils.is_installed
+
+def test_samba_running_and_enabled(host):
+    samba = host.service("smbd")
+    assert samba.is_running
+    assert samba.is_enabled    
