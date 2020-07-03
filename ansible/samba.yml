@@ -1,0 +1,44 @@
+- hosts: lab_studies
+  become: yes
+  tasks:
+    - name: Run the equivalent of apt-get update
+      apt:
+        update_cache: yes
+
+    - name: Install packages of Samba in machine
+      apt: 
+        name: 
+          - samba
+          - samba-client
+          - samba-common
+          - cifs-utils
+          - samba-common-bin
+        state: present
+    
+    - name: Start service of Samba if stoped and enable
+      service: 
+        name: smbd
+        state: started
+        enable: yes
+        
+    - name: Install python3 pip package for test the infrastructure
+      apt: 
+        name: python3-pip
+        state: present
+
+    - name: Install with pip testinfra lib
+      shell: pip3 install 'git+https://github.com/philpep/testinfra@master#egg=testinfra'
+
+    - name: Include directory vars
+      include_vars: vars/vars.yml
+
+    - name: copy local script for test_infra in python on remote server for test installations and services
+      copy: 
+        src: "{{ directory_scritp_python }}"
+        dest: /tmp/test_infra.py
+    
+    - name: Run py.test for test the infra
+      command:  py.test -v  /tmp/test_infra.py
+      register: infra
+
+    - debug: var=infra.stdout_lines
