@@ -36,6 +36,13 @@ samba.yml|Instala, inicia o serviço e executa o script de testes em Python.
 |-|-
 |test_infra.py|Checa se os pacotes do Samba está instalado e se os serviços estão rodando.
 
+## Como rodar o Playbook? ##
+
+```bash
+$ ansible-playbook -i inventory samba.yml
+```
+**Observação:** Caso necessário acrescentar o parâmetro **--ask-pass** para adequar a senha do SSH.
+
 
 
 ## Referências

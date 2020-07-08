@@ -38,7 +38,7 @@
 
     - name: copy local script for test_infra in python on remote server for test installations and services
       copy: 
-        src: "{{ directory_scritp_python }}"
+        src: "{{ script_python_directory }}"
         dest: /tmp/test_infra.py
     
     - name: Run py.test for test the infra
